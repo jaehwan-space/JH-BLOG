@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Admin UX</title>
+  <desc id="desc">A flat 2.5D admin dashboard icon with orange emphasis.</desc>
+  <rect x="24" y="30" width="112" height="92" rx="18" fill="#fff7ed"/>
+  <path d="M38 50h84v54H38z" fill="#fff" stroke="#fed7aa" stroke-width="4"/>
+  <rect x="48" y="61" width="28" height="30" rx="6" fill="#f97316"/>
+  <rect x="84" y="61" width="28" height="8" rx="4" fill="#d1d5db"/>
+  <rect x="84" y="78" width="20" height="8" rx="4" fill="#fdba74"/>
+  <path d="M54 120h52l10 14H44z" fill="#e5e7eb"/>
+  <path d="M34 124h92" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="116" cy="44" r="10" fill="#f97316"/>
+</svg>
