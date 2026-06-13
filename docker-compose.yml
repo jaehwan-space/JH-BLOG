@@ -1,0 +1,44 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: jh_blog_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: jh_blog
+      POSTGRES_USER: jh_blog
+      POSTGRES_PASSWORD: jh_blog_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jh_blog -d jh_blog"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    image: node:22-alpine
+    container_name: jh_blog_web
+    working_dir: /app
+    command: sh -c "corepack enable && pnpm install --frozen-lockfile && pnpm prisma migrate deploy && pnpm build && pnpm start"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://jh_blog:jh_blog_password@db:5432/jh_blog?schema=public
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-jh_admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-change-this-password}
+      SESSION_SECRET: ${SESSION_SECRET:-replace-with-at-least-32-random-characters}
+      UPLOAD_DIR: /app/public/uploads
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - uploads_data:/app/public/uploads
+
+volumes:
+  postgres_data:
+  uploads_data:
