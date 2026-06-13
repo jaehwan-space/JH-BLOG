@@ -1,0 +1,122 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model AdminUser {
+  id                String   @id @default(cuid())
+  username          String   @unique
+  passwordHash      String
+  passwordUpdatedAt DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String?
+  posts       Post[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Tag {
+  id        String    @id @default(cuid())
+  name      String
+  slug      String    @unique
+  posts     PostTag[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Post {
+  id          String         @id @default(cuid())
+  title       String
+  slug        String         @unique
+  excerpt     String
+  content     String
+  cover       String         @default("blog")
+  heroImageUrl String?
+  heroImageAlt String?
+  status      PostStatus     @default(DRAFT)
+  views       Int            @default(0)
+  publishedAt DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  categoryId  String
+  category    Category       @relation(fields: [categoryId], references: [id])
+  tags        PostTag[]
+  comments    Comment[]
+  viewStats   PostViewStat[]
+  featured    FeaturedPost?
+
+  @@index([status, createdAt])
+  @@index([categoryId])
+}
+
+model FeaturedPost {
+  id        String   @id @default(cuid())
+  postId    String   @unique
+  sortOrder Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([sortOrder])
+}
+
+model PostTag {
+  postId String
+  tagId  String
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, tagId])
+}
+
+model Comment {
+  id           String   @id @default(cuid())
+  author       String
+  passwordHash String
+  body         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  postId       String
+  post         Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([postId, createdAt])
+}
+
+model MediaAsset {
+  id           String   @id @default(cuid())
+  filename     String   @unique
+  originalName String
+  mimeType     String
+  size         Int
+  url          String
+  createdAt    DateTime @default(now())
+}
+
+model PostViewStat {
+  id        String   @id @default(cuid())
+  postId    String
+  date      DateTime
+  views     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, date])
+  @@index([date])
+}

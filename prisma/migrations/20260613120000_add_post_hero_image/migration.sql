@@ -1,0 +1,2 @@
+ALTER TABLE "Post" ADD COLUMN "heroImageUrl" TEXT;
+ALTER TABLE "Post" ADD COLUMN "heroImageAlt" TEXT;
