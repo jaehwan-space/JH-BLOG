@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Search</title>
+  <desc id="desc">A flat 2.5D search icon with orange lens.</desc>
+  <rect x="26" y="44" width="88" height="58" rx="16" fill="#ffffff" stroke="#e5e7eb" stroke-width="4"/>
+  <path d="M46 64h46M46 82h28" stroke="#d1d5db" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="104" cy="96" r="22" fill="#fff7ed" stroke="#f97316" stroke-width="7"/>
+  <path d="M119 111l18 18" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+  <path d="M38 116h84" stroke="#cbd5e1" stroke-width="8" stroke-linecap="round" opacity=".6"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Comment</title>
+  <desc id="desc">A flat 2.5D comment bubble icon.</desc>
+  <rect x="28" y="38" width="104" height="74" rx="18" fill="#ffffff" stroke="#e5e7eb" stroke-width="4"/>
+  <path d="M62 110l-18 22v-26" fill="#ffffff" stroke="#e5e7eb" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M50 64h60M50 82h42" stroke="#d1d5db" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="112" cy="44" r="12" fill="#f97316"/>
+  <path d="M106 44h12" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+</svg>

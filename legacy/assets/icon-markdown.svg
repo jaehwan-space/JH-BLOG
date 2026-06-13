@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Markdown</title>
+  <desc id="desc">A flat 2.5D markdown editor icon.</desc>
+  <rect x="24" y="34" width="112" height="92" rx="18" fill="#ffffff" stroke="#e5e7eb" stroke-width="4"/>
+  <rect x="42" y="54" width="76" height="14" rx="7" fill="#f97316"/>
+  <path d="M44 84h26v26H44z" fill="#fff7ed" stroke="#fdba74" stroke-width="4"/>
+  <path d="M84 88h34M84 106h24" stroke="#d1d5db" stroke-width="8" stroke-linecap="round"/>
+  <path d="M50 100l8-8 8 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 132h80" stroke="#cbd5e1" stroke-width="8" stroke-linecap="round" opacity=".65"/>
+</svg>

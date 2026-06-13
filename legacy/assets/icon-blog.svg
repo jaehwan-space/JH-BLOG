@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Blog Object</title>
+  <desc id="desc">A flat 2.5D blog card object with calm orange accent.</desc>
+  <rect x="30" y="28" width="96" height="108" rx="18" fill="#ffffff" stroke="#e5e7eb" stroke-width="4"/>
+  <path d="M46 48h64" stroke="#f97316" stroke-width="10" stroke-linecap="round"/>
+  <path d="M46 70h52M46 90h64M46 110h40" stroke="#d1d5db" stroke-width="8" stroke-linecap="round"/>
+  <rect x="104" y="24" width="30" height="30" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="4"/>
+  <path d="M112 39h14" stroke="#f97316" stroke-width="5" stroke-linecap="round"/>
+  <path d="M40 136h76" stroke="#cbd5e1" stroke-width="8" stroke-linecap="round" opacity=".7"/>
+</svg>
